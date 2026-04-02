@@ -1,0 +1,152 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weekly</title><style>
+:root{
+  --bg:#eef3fb;
+  --card:#ffffff;
+  --line:#d7e2f4;
+  --text:#173b72;
+  --muted:#6d84a8;
+  --blue:#1f66ea;
+  --blue-dark:#163b74;
+  --green:#18a957;
+  --green-bg:#eaf8f0;
+  --red:#d9485f;
+  --red-bg:#fdecef;
+  --navy:#08152f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+.wrap{max-width:480px;margin:0 auto;padding:20px 16px 28px}
+.hero{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:24px 20px;
+  box-shadow:0 4px 18px rgba(18,52,105,.06);
+}
+.hero h1{font-size:34px;line-height:1.02;margin:0 0 12px;font-weight:800;color:var(--blue-dark)}
+.hero p{margin:0;color:var(--muted);font-size:17px;line-height:1.4}
+.role-pill{
+  margin-top:18px;display:inline-flex;align-items:center;gap:10px;
+  border:2px solid #cbd9f3;background:#f6f9ff;color:var(--blue);
+  border-radius:999px;padding:12px 18px;font-weight:800;font-size:16px;
+}
+.section{margin-top:18px}
+.mobile-buttons{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.big-btn{
+  display:flex;align-items:center;justify-content:center;
+  min-height:96px;padding:18px;text-align:center;text-decoration:none;
+  border-radius:28px;border:2px solid #cbd9f3;background:#fff;color:var(--blue-dark);
+  font-weight:800;font-size:22px;line-height:1.1;box-shadow:0 4px 14px rgba(18,52,105,.05);
+}
+.big-btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+.big-btn.dark{background:var(--navy);color:#fff;border-color:#1d335d}
+.big-btn.wide{grid-column:1 / -1;min-height:88px;font-size:20px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:26px;
+  padding:20px;box-shadow:0 4px 18px rgba(18,52,105,.06);margin-top:16px;
+}
+.card h2{font-size:22px;margin:0 0 14px;color:var(--blue-dark)}
+.kpi{padding:18px;border:1px solid var(--line);border-radius:22px;margin-top:12px;background:#fff}
+.kpi .label{font-size:16px;color:var(--muted);margin-bottom:10px}
+.kpi .value{font-size:42px;font-weight:800;color:var(--blue-dark);margin-bottom:10px}
+.kpi .sub{font-size:15px;color:var(--text)}
+.status-row{display:grid;gap:12px;margin-top:12px}
+.status{
+  display:flex;justify-content:space-between;align-items:center;padding:14px 16px;
+  border-radius:18px;font-weight:700;border:1px solid transparent;
+}
+.status.good{background:var(--green-bg);color:var(--green);border-color:#ccefd9}
+.status.bad{background:var(--red-bg);color:var(--red);border-color:#f6c9d1}
+.mini{font-size:14px;color:var(--muted);margin-top:4px}
+.list-row{
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+  padding:14px 0;border-bottom:1px solid #e6edf8;
+}
+.list-row:last-child{border-bottom:0}
+.name{font-weight:800;font-size:18px;color:var(--blue-dark)}
+.target-pill{
+  padding:7px 12px;border-radius:999px;font-size:14px;font-weight:800;
+}
+.target-pill.good{background:var(--green-bg);color:var(--green)}
+.target-pill.bad{background:var(--red-bg);color:var(--red)}
+.topnav{
+  position:sticky;top:0;z-index:10;background:rgba(238,243,251,.88);
+  backdrop-filter: blur(8px);padding:14px 16px 8px;
+}
+.topnav .inner{max-width:480px;margin:0 auto}
+.back{
+  display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
+  width:52px;height:52px;border-radius:18px;border:2px solid #cbd9f3;background:#fff;color:var(--blue-dark);font-size:26px;font-weight:800;
+}
+.page-title{margin:16px 0 0;font-size:30px;font-weight:800;color:var(--blue-dark)}
+.page-sub{margin:10px 0 0;color:var(--muted);font-size:18px;line-height:1.35}
+.dark-page{background:linear-gradient(180deg,#07122b,#08152f 55%,#0a1836)}
+.dark-page .topnav{background:rgba(8,21,47,.78)}
+.dark-page .page-title,.dark-page .card h2,.dark-page .name,.dark-page .hero h1{color:#f5f7ff}
+.dark-page .page-sub,.dark-page .hero p,.dark-page .mini,.dark-page .label{color:#afbdd9}
+.dark-page .card,.dark-page .hero,.dark-page .kpi{
+  background:rgba(21,35,67,.92);border-color:#2b436e;box-shadow:none;
+}
+.dark-page .big-btn{background:rgba(21,35,67,.92);border-color:#2b436e;color:#fff}
+.dark-page .big-btn.primary{background:#2480ff;border-color:#2480ff}
+.dark-page .kpi .value,.dark-page .kpi .sub{color:#f5f7ff}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.small-btn{
+  border:0;border-radius:14px;padding:13px 16px;font-weight:800;
+  background:var(--blue);color:#fff;font-size:16px;
+}
+.small-btn.alt{background:#4b5d7c}
+.small-btn.danger{background:#d84a53}
+.form-grid{display:grid;gap:14px}
+.field label{display:block;font-size:15px;color:var(--muted);margin-bottom:8px;font-weight:700}
+.field input,.field select,.field textarea{
+  width:100%;padding:16px 16px;border-radius:18px;border:2px solid #d9e4f6;background:#fff;
+  font-size:18px;color:var(--blue-dark);
+}
+textarea{min-height:130px;resize:vertical}
+.table-card{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:16px}
+th,td{padding:12px 10px;text-align:left;border-bottom:1px solid #e6edf8}
+th{color:var(--muted);font-weight:800}
+.scorebar{
+  margin-top:12px;border-radius:999px;background:linear-gradient(90deg,#1d6bf0,#174287);color:#fff;
+  padding:18px 20px;font-size:20px;font-weight:800;display:flex;justify-content:space-between;
+}
+</style></head>
+<body>
+
+<div class="topnav"><div class="inner">
+  <a class="back" href="../index.html">‹</a>
+  <div class="page-title">Weekly Tracker</div>
+  <div class="page-sub">Rounded blue/white evaluation screen with score and targets.</div>
+</div></div>
+
+<div class="wrap">
+  <section class="card">
+    <h2>Weekly Team Evaluation Tracker</h2>
+    <div class="toolbar">
+      <button class="small-btn alt">New Week</button>
+      <button class="small-btn">Export This Week</button>
+    </div>
+    <div class="field" style="margin-top:14px"><label>Week Starting</label><input value="Mar 30, 2026"></div>
+    <div class="scorebar"><span>Current Week Score</span><span>18 / 25</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Department Buttons</h2>
+    <div class="mobile-buttons">
+      <a class="big-btn primary" href="../receiving/index.html">Receiving</a>
+      <a class="big-btn dark" href="../transfers/index.html">Transfers</a>
+      <a class="big-btn" href="../inventory/index.html">Inventory</a>
+    </div>
+  </section>
+</div></body></html>
